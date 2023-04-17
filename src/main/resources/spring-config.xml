@@ -1,0 +1,24 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--    Constructor injection with dependent objects -->
+    <bean id="professorBean" class="dasturlash.uz.Professor">
+        <constructor-arg name="name" value="Valish"/>
+        <constructor-arg name="surname" value="Valiyev"/>
+    </bean>
+
+    <bean id="assistantBean" class="dasturlash.uz.Assistant">
+        <constructor-arg name="name" value="Yordamchi"/>
+        <constructor-arg name="surname" value="Yordamchiyev"/>
+    </bean>
+
+    <bean id="lesson" class="dasturlash.uz.Lesson">
+        <constructor-arg name="name" value="Valish"/>
+        <constructor-arg name="professor" ref="professorBean"/>
+        <constructor-arg name="assistant" ref="assistantBean"/>
+    </bean>
+</beans>
